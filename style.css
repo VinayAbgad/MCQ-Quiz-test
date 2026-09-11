@@ -1,886 +1,368 @@
-/* ==========================================
-   GOOGLE FONT
-========================================== */
-
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
-
-
-/* ==========================================
-   RESET
-========================================== */
-
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
+/* ==========================================================================
+   1. CORE & RESET STYLES
+   ========================================================================== */
+:root {
+    --primary-color: #2563eb;       /* Royal Blue */
+    --primary-hover: #1d4ed8;
+    --bg-color: #f8fafc;            /* Light slate background */
+    --card-bg: #ffffff;
+    --text-primary: #1e293b;        /* Dark slate */
+    --text-secondary: #64748b;      /* Muted gray */
+    --border-color: #e2e8f0;
+    --accent-success: #10b981;      /* Green for progress */
+    --shadow-sm: 0 1px 3px rgba(0,0,0,0.05);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    --radius-md: 10px;
+    --radius-lg: 16px;
 }
 
-html{
-    scroll-behavior:smooth;
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', system-ui, -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
 }
 
-body{
-    font-family:'Poppins',sans-serif;
-
-    background:linear-gradient(135deg,#0f172a,#1e3a8a,#6d28d9);
-
-    min-height:100vh;
-
-    padding:40px 15px;
-
-    color:#ffffff;
+body {
+    background-color: var(--bg-color);
+    color: var(--text-primary);
+    line-height: 1.6;
+    padding: 20px 10px;
 }
 
-
-/* ==========================================
-   MAIN WRAPPER
-========================================== */
-
-.wrapper{
-
-    max-width:1100px;
-
-    margin:auto;
-
+/* Container Wrapper */
+.wrapper {
+    max-width: 850px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
 }
 
-
-/* ==========================================
-   HEADER
-========================================== */
-
-.exam-header{
-
-    background:rgba(255,255,255,.12);
-
-    backdrop-filter:blur(15px);
-
-    border:1px solid rgba(255,255,255,.15);
-
-    border-radius:20px;
-
-    padding:35px;
-
-    margin-bottom:25px;
-
-    box-shadow:0 10px 35px rgba(0,0,0,.25);
-
+/* ==========================================================================
+   2. HEADER & EXAM INFO
+   ========================================================================== */
+.exam-header {
+    background: var(--card-bg);
+    border-radius: var(--radius-lg);
+    padding: 28px;
+    box-shadow: var(--shadow-md);
+    border: 1px solid var(--border-color);
 }
 
-
-.exam-header h1{
-
-    text-align:center;
-
-    font-size:40px;
-
-    margin-bottom:10px;
-
-    font-weight:700;
-
+.header-top {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    border-bottom: 2px solid var(--bg-color);
+    padding-bottom: 20px;
+    margin-bottom: 20px;
 }
 
-
-.exam-header h2{
-
-    text-align:center;
-
-    font-size:18px;
-
-    color:#dbeafe;
-
-    margin-bottom:35px;
-
-    font-weight:400;
-
+.school-logo {
+    width: 75px;
+    height: 75px;
+    object-fit: contain;
 }
 
-
-/* ==========================
-   SCHOOL HEADER
-========================== */
-
-.header-top{
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:center;
-
-    gap:20px;
-
-    margin-bottom:30px;
-
+.school-title h1 {
+    font-size: 1.35rem;
+    color: var(--text-primary);
+    font-weight: 700;
 }
 
-.school-logo{
-
-    width:90px;
-
-    height:90px;
-
-    object-fit:contain;
-
-    filter:drop-shadow(0 5px 12px rgba(0,0,0,.35));
-
+.school-title h2 {
+    font-size: 1.1rem;
+    color: var(--primary-color);
+    margin-top: 4px;
 }
 
-.school-title{
-
-    text-align:left;
-
+/* Key Value Exam Metadata Grid */
+.exam-info {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+    gap: 16px;
+    text-align: center;
 }
 
-.school-title h1{
-
-    margin-bottom:8px;
-
+.exam-info > div {
+    background: var(--bg-color);
+    padding: 12px;
+    border-radius: var(--radius-md);
+    border: 1px solid var(--border-color);
 }
 
-.school-title h2{
-
-    margin:0;
-
+.exam-info h3 {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--text-secondary);
+    margin-bottom: 2px;
 }
 
-/* Mobile */
+.exam-info p {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--text-primary);
+}
 
-@media(max-width:768px){
+#timer {
+    color: #d97706; /* Warning accent color for timer */
+}
 
-    .header-top{
+/* ==========================================================================
+   3. STUDENT INFO & INSTRUCTIONS
+   ========================================================================== */
+.student-box, .instructions {
+    background: var(--card-bg);
+    padding: 24px;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--border-color);
+}
 
-        flex-direction:column;
+.student-box h2, .instructions h2 {
+    font-size: 1.1rem;
+    margin-bottom: 16px;
+    color: var(--text-primary);
+    border-left: 4px solid var(--primary-color);
+    padding-left: 10px;
+}
 
-        text-align:center;
+.student-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 16px;
+}
 
+.student-grid label {
+    display: block;
+    font-size: 0.875rem;
+    font-weight: 600;
+    margin-bottom: 6px;
+    color: var(--text-secondary);
+}
+
+.student-grid input {
+    width: 100%;
+    padding: 10px 14px;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    outline: none;
+    font-size: 0.95rem;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.student-grid input:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+}
+
+.instructions ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.instructions li {
+    position: relative;
+    padding-left: 24px;
+    margin-bottom: 8px;
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+}
+
+.instructions li::before {
+    content: "•";
+    position: absolute;
+    left: 8px;
+    color: var(--primary-color);
+    font-weight: bold;
+}
+
+/* ==========================================================================
+   4. STICKY PROGRESS BAR
+   ========================================================================== */
+.progress-section {
+    position: sticky;
+    top: 12px;
+    z-index: 100;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(8px);
+    padding: 16px 20px;
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-md);
+    border: 1px solid var(--border-color);
+}
+
+.progress-text {
+    display: flex;
+    justify-content: space-between;
+    font-weight: 600;
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    margin-bottom: 8px;
+}
+
+.progress-bar {
+    height: 8px;
+    background: #e2e8f0;
+    border-radius: 999px;
+    overflow: hidden;
+}
+
+#progressFill {
+    height: 100%;
+    width: 0%;
+    background: var(--accent-success);
+    border-radius: 999px;
+    transition: width 0.3s ease;
+}
+
+/* ==========================================================================
+   5. QUESTION CARDS & INTERACTIVE OPTIONS
+   ========================================================================== */
+#quizForm {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.question {
+    background: var(--card-bg);
+    padding: 24px;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--border-color);
+}
+
+.question h3 {
+    font-size: 1.05rem;
+    font-weight: 600;
+    margin-bottom: 16px;
+    line-height: 1.5;
+}
+
+/* Custom Interactive Option Boxes */
+.option {
+    display: flex;
+    align-items: center;
+    padding: 12px 16px;
+    margin-bottom: 10px;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    background-color: #fff;
+    transition: all 0.2s ease;
+    font-size: 0.95rem;
+}
+
+.option:hover {
+    background-color: #f1f5f9;
+    border-color: #cbd5e1;
+}
+
+.option input[type="radio"] {
+    appearance: none;
+    -webkit-appearance: none;
+    width: 18px;
+    height: 18px;
+    border: 2px solid #94a3b8;
+    border-radius: 50%;
+    margin-right: 14px;
+    outline: none;
+    display: grid;
+    place-content: center;
+    transition: border-color 0.2s ease;
+    flex-shrink: 0;
+}
+
+.option input[type="radio"]::before {
+    content: "";
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: var(--primary-color);
+    transform: scale(0);
+    transition: transform 0.15s ease-in-out;
+}
+
+.option input[type="radio"]:checked::before {
+    transform: scale(1);
+}
+
+.option:has(input[type="radio"]:checked) {
+    background-color: #eff6ff;
+    border-color: var(--primary-color);
+    color: var(--primary-hover);
+    font-weight: 500;
+}
+
+/* ==========================================================================
+   6. SUBMIT BUTTON & RESULT BOX
+   ========================================================================== */
+.btn {
+    display: block;
+    width: 100%;
+    padding: 16px;
+    background-color: var(--primary-color);
+    color: #ffffff;
+    font-size: 1.1rem;
+    font-weight: 600;
+    border: none;
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    box-shadow: var(--shadow-md);
+    transition: background-color 0.2s ease, transform 0.1s ease;
+    margin-top: 10px;
+}
+
+.btn:hover {
+    background-color: var(--primary-hover);
+}
+
+.btn:active {
+    transform: scale(0.99);
+}
+
+/* Styled Target for JavaScript Output */
+#result {
+    margin-top: 10px;
+    padding: 24px;
+    border-radius: var(--radius-lg);
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    box-shadow: var(--shadow-md);
+    text-align: center;
+    display: none; /* Initially hidden until JS reveals it */
+}
+
+#result:not(:empty) {
+    display: block;
+}
+
+/* ==========================================================================
+   7. RESPONSIVE DESIGN (MOBILE)
+   ========================================================================== */
+@media (max-width: 640px) {
+    body {
+        padding: 12px 6px;
     }
 
-    .school-title{
-
-        text-align:center;
-
+    .header-top {
+        flex-direction: column;
+        text-align: center;
     }
 
-    .school-logo{
-
-        width:75px;
-
-        height:75px;
-
+    .school-title h1 {
+        font-size: 1.15rem;
     }
 
-}
-
-
-/* ==========================================
-   EXAM INFO
-========================================== */
-
-.exam-info{
-
-    display:grid;
-
-    grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
-
-    gap:18px;
-
-}
-
-
-.exam-info div{
-
-    background:rgba(255,255,255,.08);
-
-    padding:18px;
-
-    border-radius:14px;
-
-    text-align:center;
-
-    transition:.3s;
-
-}
-
-
-.exam-info div:hover{
-
-    transform:translateY(-5px);
-
-    background:rgba(255,255,255,.15);
-
-}
-
-
-.exam-info h3{
-
-    color:#93c5fd;
-
-    font-size:14px;
-
-    margin-bottom:8px;
-
-    text-transform:uppercase;
-
-    letter-spacing:1px;
-
-}
-
-
-.exam-info p{
-
-    font-size:22px;
-
-    font-weight:600;
-
-}
-
-
-/* ==========================================
-   STUDENT BOX
-========================================== */
-
-.student-box{
-
-    background:rgba(255,255,255,.12);
-
-    backdrop-filter:blur(15px);
-
-    border-radius:20px;
-
-    padding:30px;
-
-    margin-bottom:25px;
-
-    box-shadow:0 10px 35px rgba(0,0,0,.25);
-
-}
-
-
-.student-box h2{
-
-    margin-bottom:25px;
-
-    text-align:center;
-
-}
-
-
-.student-grid{
-
-    display:grid;
-
-    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-
-    gap:20px;
-
-}
-
-
-.student-grid label{
-
-    display:block;
-
-    margin-bottom:8px;
-
-    font-weight:500;
-
-}
-
-
-.student-grid input{
-
-    width:100%;
-
-    padding:14px;
-
-    border:none;
-
-    outline:none;
-
-    border-radius:10px;
-
-    font-size:16px;
-
-}
-
-
-/* ==========================================
-   INSTRUCTIONS
-========================================== */
-
-.instructions{
-
-    background:rgba(255,255,255,.12);
-
-    backdrop-filter:blur(15px);
-
-    border-radius:20px;
-
-    padding:30px;
-
-    margin-bottom:25px;
-
-    box-shadow:0 10px 35px rgba(0,0,0,.25);
-
-}
-
-
-.instructions h2{
-
-    margin-bottom:20px;
-
-}
-
-
-.instructions ul{
-
-    padding-left:25px;
-
-}
-
-
-.instructions li{
-
-    margin-bottom:10px;
-
-    line-height:1.8;
-
-}
-
-
-/* ==========================================
-   PROGRESS BAR
-========================================== */
-
-.progress-section{
-
-    background:rgba(255,255,255,.12);
-
-    backdrop-filter:blur(15px);
-
-    border-radius:20px;
-
-    padding:25px;
-
-    margin-bottom:30px;
-
-    box-shadow:0 10px 35px rgba(0,0,0,.25);
-
-}
-
-.progress-text{
-
-    display:flex;
-
-    justify-content:space-between;
-
-    align-items:center;
-
-    margin-bottom:15px;
-
-    font-weight:600;
-
-    font-size:16px;
-
-}
-
-.progress-bar{
-
-    width:100%;
-
-    height:16px;
-
-    background:rgba(255,255,255,.18);
-
-    border-radius:50px;
-
-    overflow:hidden;
-
-}
-
-#progressFill{
-
-    width:0%;
-
-    height:100%;
-
-    border-radius:50px;
-
-    background:linear-gradient(90deg,#22c55e,#3b82f6,#8b5cf6);
-
-    transition:.5s ease;
-
-}
-
-
-/* ==========================================
-   QUESTIONS
-========================================== */
-
-.question{
-
-    background:rgba(255,255,255,.12);
-
-    backdrop-filter:blur(15px);
-
-    border-radius:18px;
-
-    padding:25px;
-
-    margin-bottom:25px;
-
-    box-shadow:0 8px 25px rgba(0,0,0,.18);
-
-    transition:.35s;
-
-    border-left:6px solid #38bdf8;
-
-}
-
-.question:hover{
-
-    transform:translateY(-6px);
-
-    box-shadow:0 15px 35px rgba(0,0,0,.30);
-
-}
-
-.question h3{
-
-    font-size:20px;
-
-    line-height:1.6;
-
-    margin-bottom:20px;
-
-    color:#ffffff;
-
-}
-
-
-/* ==========================================
-   OPTIONS
-========================================== */
-
-.option{
-
-    display:block;
-
-    padding:15px 18px;
-
-    margin-bottom:14px;
-
-    border-radius:12px;
-
-    background:rgba(255,255,255,.08);
-
-    border:2px solid transparent;
-
-    cursor:pointer;
-
-    transition:.30s;
-
-    font-size:16px;
-
-}
-
-.option:hover{
-
-    background:rgba(59,130,246,.25);
-
-    border-color:#60a5fa;
-
-    transform:translateX(5px);
-
-}
-
-.option input{
-
-    margin-right:12px;
-
-    transform:scale(1.2);
-
-    cursor:pointer;
-
-}
-
-
-/* ==========================================
-   SELECTED OPTION
-========================================== */
-
-.option:has(input:checked){
-
-    background:rgba(37,99,235,.35);
-
-    border-color:#3b82f6;
-
-    font-weight:600;
-
-}
-
-
-/* ==========================================
-   CORRECT / WRONG ANSWERS
-========================================== */
-
-.correct{
-
-    background:#16a34a !important;
-
-    border-color:#22c55e !important;
-
-    color:white;
-
-}
-
-.wrong{
-
-    background:#dc2626 !important;
-
-    border-color:#ef4444 !important;
-
-    color:white;
-
-}
-
-
-/* ==========================================
-   TIMER
-========================================== */
-
-#timer{
-
-    font-size:24px;
-
-    font-weight:bold;
-
-    color:#facc15;
-
-    letter-spacing:1px;
-
-}
-
-
-/* ==========================================
-   FORM SPACING
-========================================== */
-
-form{
-
-    margin-top:30px;
-
-}
-
-
-/* ==========================================
-   SUBMIT BUTTON
-========================================== */
-
-.btn{
-
-    display:block;
-
-    width:320px;
-
-    max-width:100%;
-
-    margin:40px auto;
-
-    padding:16px;
-
-    border:none;
-
-    border-radius:50px;
-
-    cursor:pointer;
-
-    font-size:20px;
-
-    font-weight:600;
-
-    color:#fff;
-
-    background:linear-gradient(135deg,#2563eb,#7c3aed);
-
-    box-shadow:0 10px 25px rgba(37,99,235,.35);
-
-    transition:.3s;
-
-}
-
-.btn:hover{
-
-    transform:translateY(-4px);
-
-    box-shadow:0 15px 35px rgba(37,99,235,.50);
-
-}
-
-.btn:active{
-
-    transform:scale(.98);
-
-}
-
-.btn:disabled{
-
-    background:#6b7280;
-
-    cursor:not-allowed;
-
-    box-shadow:none;
-
-}
-
-
-/* ==========================================
-   RESULT CARD
-========================================== */
-
-#result{
-
-    display:none;
-
-    margin-top:35px;
-
-    padding:35px;
-
-    border-radius:20px;
-
-    text-align:center;
-
-    background:rgba(255,255,255,.12);
-
-    backdrop-filter: blur(15px);
-
-    box-shadow:0 10px 35px rgba(0,0,0,.25);
-
-    animation:fadeIn .8s ease;
-
-}
-
-#result h2{
-
-    font-size:34px;
-
-    margin-bottom:25px;
-
-    color:#fbbf24;
-
-}
-
-#result p{
-
-    font-size:22px;
-
-    margin:12px 0;
-
-}
-
-.grade{
-
-    font-size:30px;
-
-    font-weight:bold;
-
-    color:#22c55e;
-
-}
-
-.fail{
-
-    color:#ef4444;
-
-}
-
-.pass{
-
-    color:#22c55e;
-
-}
-
-
-/* ==========================================
-   INPUT FOCUS
-========================================== */
-
-input[type="text"]:focus{
-
-    outline:none;
-
-    border:2px solid #60a5fa;
-
-    box-shadow:0 0 12px rgba(96,165,250,.6);
-
-}
-
-
-/* ==========================================
-   SCROLLBAR
-========================================== */
-
-::-webkit-scrollbar{
-
-    width:10px;
-
-}
-
-::-webkit-scrollbar-track{
-
-    background:#1e293b;
-
-}
-
-::-webkit-scrollbar-thumb{
-
-    background:#60a5fa;
-
-    border-radius:20px;
-
-}
-
-::-webkit-scrollbar-thumb:hover{
-
-    background:#2563eb;
-
-}
-
-
-/* ==========================================
-   ANIMATIONS
-========================================== */
-
-@keyframes fadeIn{
-
-    from{
-
-        opacity:0;
-
-        transform:translateY(20px);
-
+    .exam-info {
+        grid-template-columns: repeat(2, 1fr);
     }
 
-    to{
-
-        opacity:1;
-
-        transform:translateY(0);
-
+    .question {
+        padding: 16px;
     }
-
-}
-
-.question{
-
-    animation:fadeIn .6s ease;
-
-}
-
-
-/* ==========================================
-   MOBILE RESPONSIVE
-========================================== */
-
-@media(max-width:900px){
-
-    .exam-header h1{
-
-        font-size:30px;
-
-    }
-
-    .exam-header h2{
-
-        font-size:16px;
-
-    }
-
-    .question h3{
-
-        font-size:18px;
-
-    }
-
-}
-
-@media(max-width:768px){
-
-    body{
-
-        padding:15px;
-
-    }
-
-    .exam-header,
-    .student-box,
-    .instructions,
-    .progress-section,
-    .question{
-
-        padding:20px;
-
-    }
-
-    .exam-info{
-
-        grid-template-columns:repeat(2,1fr);
-
-    }
-
-    .student-grid{
-
-        grid-template-columns:1fr;
-
-    }
-
-    .question h3{
-
-        font-size:17px;
-
-    }
-
-    .option{
-
-        font-size:15px;
-
-        padding:14px;
-
-    }
-
-    .btn{
-
-        width:100%;
-
-    }
-
-}
-
-@media(max-width:480px){
-
-    .exam-header h1{
-
-        font-size:24px;
-
-    }
-
-    .exam-info{
-
-        grid-template-columns:1fr;
-
-    }
-
-    #result h2{
-
-        font-size:28px;
-
-    }
-
-    #result p{
-
-        font-size:18px;
-
-    }
-
 }
